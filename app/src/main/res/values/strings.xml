@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Activity Names -->
     <string name="app_name">News</string>
     <string name="hello_world">Hello world!</string>
+
+    <!-- Menu Items -->
     <string name="action_settings">Settings</string>
 
 </resources>
