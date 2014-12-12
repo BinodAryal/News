@@ -5,4 +5,31 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Label" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="Label.Red">
+        <item name="android:background">#FF4444</item>
+    </style>
+
+    <style name="Label.Blue">
+        <item name="android:background">#33B5E5</item>
+    </style>
+
+    <style name="Label.Green">
+        <item name="android:background">#99CC00</item>
+    </style>
+
+    <style name="Label.Yellow">
+        <item name="android:background">#FFBB33</item>
+    </style>
+
 </resources>
