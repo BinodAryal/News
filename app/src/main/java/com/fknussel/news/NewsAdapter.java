@@ -1,6 +1,7 @@
 package com.fknussel.news;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,12 +29,19 @@ public class NewsAdapter extends ArrayAdapter<Post> {
                     .inflate(R.layout.list_item_post, parent, false);
         }
 
+        // Alternate the background color
+        if(position % 2 == 1) {
+            convertView.setBackgroundColor(Color.argb(5, 224, 224, 224));
+        } else {
+            convertView.setBackgroundColor(Color.argb(85, 224, 224, 224));
+        }
+
         // Lookup view for data population
         TextView postId = (TextView) convertView.findViewById(R.id.post_id);
         TextView postTitle = (TextView) convertView.findViewById(R.id.post_title);
 
         // Populate the data into the template view using the data object
-        postId.setText("Post #" + String.valueOf(post.getId()));
+        postId.setText("#" + String.valueOf(post.getId()));
         postTitle.setText(post.getTitle());
 
         // Return the completed view to render on screen
