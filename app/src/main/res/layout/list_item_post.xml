@@ -11,17 +11,17 @@
 
         <TextView
             android:id="@+id/post_id"
-            style="@style/Label.DarkGreen" />
+            style="@style/Label.DarkYellow" />
 
         <TextView
             android:id="@+id/post_date"
-            style="@style/Label.DarkBlue"
-            android:text="Date" />
+            style="@style/Label.DarkGreen"
+            android:text="Category" />
 
         <TextView
             android:id="@+id/post_category"
-            style="@style/Label.LightBlue"
-            android:text="Category" />
+            style="@style/Label.DarkBlue"
+            android:text="Date" />
 
     </LinearLayout>
 

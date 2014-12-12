@@ -36,8 +36,12 @@
         <item name="android:background">#669900</item>
     </style>
 
-    <style name="Label.Yellow">
+    <style name="Label.LightYellow">
         <item name="android:background">#FFBB33</item>
+    </style>
+
+    <style name="Label.DarkYellow">
+        <item name="android:background">#FF8800</item>
     </style>
 
 </resources>
