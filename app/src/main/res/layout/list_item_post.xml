@@ -11,16 +11,16 @@
 
         <TextView
             android:id="@+id/post_id"
-            style="@style/Label.Green" />
+            style="@style/Label.DarkGreen" />
 
         <TextView
             android:id="@+id/post_date"
-            style="@style/Label.Blue"
+            style="@style/Label.DarkBlue"
             android:text="Date" />
 
         <TextView
             android:id="@+id/post_category"
-            style="@style/Label.Yellow"
+            style="@style/Label.LightBlue"
             android:text="Category" />
 
     </LinearLayout>
@@ -30,6 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:fontFamily="sans-serif-light" />
 
 </LinearLayout>

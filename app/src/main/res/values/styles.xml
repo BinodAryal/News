@@ -20,12 +20,20 @@
         <item name="android:background">#FF4444</item>
     </style>
 
-    <style name="Label.Blue">
+    <style name="Label.LightBlue">
         <item name="android:background">#33B5E5</item>
     </style>
 
-    <style name="Label.Green">
+    <style name="Label.DarkBlue">
+        <item name="android:background">#0099CC</item>
+    </style>
+
+    <style name="Label.LightGreen">
         <item name="android:background">#99CC00</item>
+    </style>
+
+    <style name="Label.DarkGreen">
+        <item name="android:background">#669900</item>
     </style>
 
     <style name="Label.Yellow">
