@@ -31,9 +31,9 @@ public class NewsAdapter extends ArrayAdapter<Post> {
 
         // Alternate the background color
         if(position % 2 == 1) {
-            convertView.setBackgroundColor(Color.argb(5, 224, 224, 224));
+            convertView.setBackgroundColor(Color.argb(10, 224, 224, 224));
         } else {
-            convertView.setBackgroundColor(Color.argb(85, 224, 224, 224));
+            convertView.setBackgroundColor(Color.argb(100, 224, 224, 224));
         }
 
         // Lookup view for data population

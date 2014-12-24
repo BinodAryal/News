@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class DetailActivity extends ActionBarActivity {
@@ -17,8 +18,16 @@ public class DetailActivity extends ActionBarActivity {
         setContentView(R.layout.activity_detail);
 
         if (getIntent() != null) {
-            int id = getIntent().getIntExtra("id", 0);
+            int id = getIntent().getIntExtra("id", 0) - 1;
             Log.d(LOG_TAG, "Post ID = " + id);
+
+            TextView detailPostTitle = (TextView) findViewById(R.id.detail_post_title);
+            TextView detailPostDetails = (TextView) findViewById(R.id.detail_post_details);
+
+            setTitle(Post.getDummyPosts().get(id).getTitle());
+
+            detailPostTitle.setText(Post.getDummyPosts().get(id).getTitle());
+            detailPostDetails.setText("Date - Category");
         }
 
     }

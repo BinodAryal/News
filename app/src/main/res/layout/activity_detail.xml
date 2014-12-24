@@ -1,12 +1,45 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.fknussel.news.DetailActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fknussel.news.DetailActivity"
+    android:orientation="vertical">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/detail_post_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textSize="22dp"
+        android:background="@color/dark_blue"
+        android:padding="20dp"
+        android:textColor="@color/white" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/detail_post_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textSize="16dp"
+        android:background="@color/light_blue"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:textColor="@color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis eros ac nisl feugiat, sed ornare velit tempor. Aenean euismod, nibh in rhoncus gravida, ante lectus consectetur eros, vitae viverra nibh ligula quis risus. Integer ultricies accumsan purus, id aliquet urna molestie non. In consequat lorem id ante vestibulum, eget vehicula odio molestie. Praesent ut posuere sapien. Aliquam tincidunt mauris dictum, bibendum arcu id, sagittis ipsum. Curabitur consequat sapien quis mauris vestibulum, ut bibendum mauris elementum. Sed et imperdiet ipsum, eu dignissim massa. Proin sollicitudin velit at enim semper, in ultrices enim aliquet. Ut pulvinar laoreet erat sed euismod. In hac habitasse platea dictumst. Aenean molestie tempor enim, ac eleifend neque consequat nec. Integer eu efficitur dui. Donec convallis condimentum auctor. Etiam lacinia consequat nunc, eu malesuada diam tempor in. Vivamus ornare sagittis justo, et blandit erat commodo vel. Mauris dignissim est sapien, vel consequat dui euismod nec. Aenean elementum risus placerat dolor maximus, quis dignissim sem scelerisque. Praesent ullamcorper ultrices leo a dapibus. Nunc sit amet ullamcorper est, sed dictum turpis. Proin eu porta metus, ut elementum urna."
+            android:padding="25dp"
+            android:fontFamily="sans-serif-light"
+            android:textSize="17dp" />
+
+        </ScrollView>
+
+</LinearLayout>
