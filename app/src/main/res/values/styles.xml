@@ -8,12 +8,15 @@
     <style name="Label" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">9sp</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:typeface">monospace</item>
-        <item name="android:padding">5dp</item>
-        <item name="android:layout_marginRight">5dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+        <item name="android:layout_marginBottom">3dp</item>
     </style>
 
     <style name="Label.DarkPrimary">
@@ -21,7 +24,7 @@
     </style>
 
     <style name="Label.Primary">
-        <item name="android:background">#8BC34A</item>
+        <item name="android:background">#4CAF50</item>
     </style>
 
     <style name="Label.Accent">

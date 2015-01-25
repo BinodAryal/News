@@ -37,11 +37,9 @@ public class NewsAdapter extends ArrayAdapter<Post> {
         }
 
         // Lookup view for data population
-        TextView postId = (TextView) convertView.findViewById(R.id.post_id);
         TextView postTitle = (TextView) convertView.findViewById(R.id.post_title);
 
         // Populate the data into the template view using the data object
-        postId.setText("#" + String.valueOf(post.getId()));
         postTitle.setText(post.getTitle());
 
         // Return the completed view to render on screen
