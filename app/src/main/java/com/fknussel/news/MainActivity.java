@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -18,7 +18,6 @@ public class MainActivity extends ActionBarActivity {
                     .commit();
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,8 +34,19 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_settings:
+                //startActivity(new Intent(this, SettingsActivity.class));
+                Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_refresh:
+                //startService(new Intent(this, RefreshService.class));
+                Toast.makeText(this, "refresh", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_search:
+                //startService(new Intent(this, RefreshService.class));
+                Toast.makeText(this, "search", Toast.LENGTH_SHORT).show();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
