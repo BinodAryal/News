@@ -2,16 +2,20 @@ package com.fknussel.news;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 
 public class DetailActivity extends ActionBarActivity {
 
-    public final String LOG_TAG = this.getClass().getSimpleName();
+    public final String TAG = DetailActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +24,26 @@ public class DetailActivity extends ActionBarActivity {
 
         if (getIntent() != null) {
             int id = getIntent().getIntExtra("id", 0) - 1;
-            Log.d(LOG_TAG, "Post ID = " + id);
+            Log.d(TAG, "Post ID = " + id);
 
-            TextView detailPostTitle = (TextView) findViewById(R.id.detail_post_title);
-            TextView detailPostDetails = (TextView) findViewById(R.id.detail_post_details);
+            TextView postTitle = (TextView) findViewById(R.id.detail_post_title);
+//            TextView postDetails = (TextView) findViewById(R.id.detail_post_details);
+            ImageView postImage = (ImageView) findViewById(R.id.detail_post_image);
 
-            //setTitle(Post.getDummyPosts().get(id).getTitle());
+            postTitle.setText(Post.getDummyPosts().get(id).getTitle());
+//            postDetails.setText("Date - Category");
 
-            detailPostTitle.setText(Post.getDummyPosts().get(id).getTitle());
-            detailPostDetails.setText("Date - Category");
+            DisplayMetrics displaymetrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+            int viewportHeight = displaymetrics.heightPixels;
+            int viewportWidth = displaymetrics.widthPixels;
+            
+            Picasso.with(this)
+                    .load("http://i.imgur.com/aX3MaJ9.jpg")
+                    .resize(viewportWidth, viewportHeight/2)
+                    .centerCrop()
+                    .into(postImage);
         }
-
     }
 
     @Override
