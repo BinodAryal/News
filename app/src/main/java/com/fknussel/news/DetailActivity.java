@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class DetailActivity extends ActionBarActivity {
@@ -24,14 +25,13 @@ public class DetailActivity extends ActionBarActivity {
             TextView detailPostTitle = (TextView) findViewById(R.id.detail_post_title);
             TextView detailPostDetails = (TextView) findViewById(R.id.detail_post_details);
 
-            setTitle(Post.getDummyPosts().get(id).getTitle());
+            //setTitle(Post.getDummyPosts().get(id).getTitle());
 
             detailPostTitle.setText(Post.getDummyPosts().get(id).getTitle());
             detailPostDetails.setText("Date - Category");
         }
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,7 +48,8 @@ public class DetailActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_share) {
+            Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
             return true;
         }
 
