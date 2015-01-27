@@ -47,7 +47,7 @@ public class NewsAdapter extends ArrayAdapter<Post> {
         postTitle.setText(post.getTitle());
 
         Picasso.with(getContext())
-                .load("http://i.imgur.com/ZdWyxLj.jpg")
+                .load(post.getImage())
                 .resize(200, 200)
                 .centerCrop()
                 .transform(new RoundedTransformation(100, 0))
