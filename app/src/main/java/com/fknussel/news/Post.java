@@ -6,13 +6,15 @@ public class Post {
 
     private int id;
     private String title;
+    private String image;
 //    private String excerpt;
 //    private String body;
 //    private Date date;
 
-    public Post(int id, String title) {
+    public Post(int id, String title, String image) {
         this.id = id;
         this.title = title;
+        this.image = image;
     }
 
     public int getId() {
@@ -26,6 +28,10 @@ public class Post {
     public String getTitle() {
         return title;
     }
+    
+    public String getImage() {
+        return image;
+    }
 
     public void setTitle(String title) {
         this.title = title;
@@ -34,16 +40,15 @@ public class Post {
     public static ArrayList<Post> getDummyPosts() {
         ArrayList<Post> items = new ArrayList<Post>();
 
-        items.add(new Post(1, "Sonaron las campanas adhiriendo a la movida nacional \"Bailemos Todos\""));
-        items.add(new Post(2, "El Intendente inauguró nuevas luminarias de la zona céntrica"));
-        items.add(new Post(3, "El Ipem Nº 326 informó los ganadores de su Bono Contribución"));
-        items.add(new Post(4, "Retoño de la higuera de la Casa de Sarmiento en nuestra localidad"));
-        items.add(new Post(5, "Deportes y Recreación: Se inician las actividades de verano."));
-        items.add(new Post(6, "El Ipem Nº 326 informó los ganadores de su Bono Contribución"));
-        items.add(new Post(7, "El miércoles 10 será la 15º Edición de los Premios Sport 6"));
-        items.add(new Post(8, "Ciclo lectivo 2015: las clases en Córdoba comenzarán el 2 de marzo y finalizarán el 18 de diciembre"));
-        items.add(new Post(9, "2° Clínica de Rugby en Córdoba Capital"));
-        items.add(new Post(10, "Se presentó el plan de Ordenamiento Urbano"));
+        items.add(new Post(1, "Stunning photos of Scottish skies", "http://ichef.bbci.co.uk/wwtravel/608_342/images/live/p0/2g/q7/p02gq7ww.jpg"));
+        items.add(new Post(2, "Living in 2015’s hottest cities", "http://ichef.bbci.co.uk/wwtravel/608_342/images/live/p0/2h/b4/p02hb4wh.jpg"));
+        items.add(new Post(3, "One of WWI's bloodiest frontlines", "http://ichef.bbci.co.uk/wwtravel/608_342/images/live/p0/2g/t3/p02gt3v6.jpg"));
+        items.add(new Post(4, "The quest to see China’s extraordinary frozen fog", "http://ichef.bbci.co.uk/wwtravel/608_342/images/live/p0/2g/vw/p02gvwkz.jpg"));
+        items.add(new Post(5, "The quietest place in the US", "http://ichef.bbci.co.uk/wwtravel/608_342/images/live/p0/2g/ng/p02gngy4.jpg"));
+        items.add(new Post(6, "The trip that changed national parks forever", "http://ichef.bbci.co.uk/wwtravel/608_342/images/live/p0/2g/ly/p02gly8k.jpg"));
+        items.add(new Post(7, "The first rule in tracking lions: No running", "http://ichef.bbci.co.uk/wwtravel/608_342/images/live/p0/2h/7z/p02h7z3t.jpg"));
+        items.add(new Post(8, "Four days in Australia’s open ocean", "http://ichef.bbci.co.uk/wwtravel/608_342/images/live/p0/2g/ql/p02gqlb5.jpg"));
+        items.add(new Post(9, "How I quit my job to travel: The blogger", "http://ichef.bbci.co.uk/wwtravel/608_342/images/live/p0/2f/w9/p02fw9cx.jpg"));
 
         return items;
     }

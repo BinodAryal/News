@@ -1,17 +1,30 @@
 package com.fknussel.news;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+
+import java.io.File;
 
 
 public class DetailActivity extends ActionBarActivity {
 
-    public final String LOG_TAG = this.getClass().getSimpleName();
-
+    public final String TAG = DetailActivity.class.getSimpleName();
+    int imageWidth, imageHeight;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,19 +32,19 @@ public class DetailActivity extends ActionBarActivity {
 
         if (getIntent() != null) {
             int id = getIntent().getIntExtra("id", 0) - 1;
-            Log.d(LOG_TAG, "Post ID = " + id);
 
-            TextView detailPostTitle = (TextView) findViewById(R.id.detail_post_title);
-            TextView detailPostDetails = (TextView) findViewById(R.id.detail_post_details);
+            TextView postTitle = (TextView) findViewById(R.id.detail_post_title);
+            final ImageView postImage = (ImageView) findViewById(R.id.detail_post_image);
 
-            setTitle(Post.getDummyPosts().get(id).getTitle());
+            postTitle.setText(Post.getDummyPosts().get(id).getTitle());
 
-            detailPostTitle.setText(Post.getDummyPosts().get(id).getTitle());
-            detailPostDetails.setText("Date - Category");
+            final String imageUrl = Post.getDummyPosts().get(id).getImage();
+
+            Picasso.with(this)
+                    .load(imageUrl)
+                    .into(postImage);
         }
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,7 +61,8 @@ public class DetailActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_share) {
+            Toast.makeText(this, "share", Toast.LENGTH_SHORT).show();
             return true;
         }
 

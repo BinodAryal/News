@@ -6,7 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -37,12 +40,18 @@ public class NewsAdapter extends ArrayAdapter<Post> {
         }
 
         // Lookup view for data population
-        TextView postId = (TextView) convertView.findViewById(R.id.post_id);
         TextView postTitle = (TextView) convertView.findViewById(R.id.post_title);
+        ImageView postImage = (ImageView) convertView.findViewById(R.id.post_image);
 
         // Populate the data into the template view using the data object
-        postId.setText("#" + String.valueOf(post.getId()));
         postTitle.setText(post.getTitle());
+
+        Picasso.with(getContext())
+                .load(post.getImage())
+                .resize(200, 200)
+                .centerCrop()
+                .transform(new RoundedTransformation(100, 0))
+                .into(postImage);
 
         // Return the completed view to render on screen
         return convertView;

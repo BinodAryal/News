@@ -1,45 +1,47 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fknussel.news.DetailActivity"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/detail_post_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:textSize="22dp"
-        android:background="@color/dark_blue"
-        android:padding="20dp"
-        android:textColor="@color/white" />
-
-    <TextView
-        android:id="@+id/detail_post_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:textSize="16dp"
-        android:background="@color/light_blue"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:textColor="@color/white" />
-
-    <ScrollView
+    tools:context=".DetailActivity">
+    
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/detail_post_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true" />
+
+        <TextView
+            android:id="@+id/detail_post_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/detail_post_image"
+            android:layout_alignStart="@id/detail_post_image"
+            android:layout_alignBottom="@id/detail_post_image"
+            android:padding="10dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="20dp"
+            android:gravity="left"
+            android:background="#A6000000"
+            android:textColor="#FFFFFF"
+            android:textSize="22dp"
+            android:fontFamily="sans-serif-light" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/detail_post_image"
+            android:lineSpacingMultiplier="1.3"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis eros ac nisl feugiat, sed ornare velit tempor. Aenean euismod, nibh in rhoncus gravida, ante lectus consectetur eros, vitae viverra nibh ligula quis risus. Integer ultricies accumsan purus, id aliquet urna molestie non. In consequat lorem id ante vestibulum, eget vehicula odio molestie. Praesent ut posuere sapien. Aliquam tincidunt mauris dictum, bibendum arcu id, sagittis ipsum. Curabitur consequat sapien quis mauris vestibulum, ut bibendum mauris elementum. Sed et imperdiet ipsum, eu dignissim massa. Proin sollicitudin velit at enim semper, in ultrices enim aliquet. Ut pulvinar laoreet erat sed euismod. In hac habitasse platea dictumst. Aenean molestie tempor enim, ac eleifend neque consequat nec. Integer eu efficitur dui. Donec convallis condimentum auctor. Etiam lacinia consequat nunc, eu malesuada diam tempor in. Vivamus ornare sagittis justo, et blandit erat commodo vel. Mauris dignissim est sapien, vel consequat dui euismod nec. Aenean elementum risus placerat dolor maximus, quis dignissim sem scelerisque. Praesent ullamcorper ultrices leo a dapibus. Nunc sit amet ullamcorper est, sed dictum turpis. Proin eu porta metus, ut elementum urna."
             android:padding="25dp"
             android:fontFamily="sans-serif-light"
             android:textSize="17dp" />
 
-        </ScrollView>
+    </RelativeLayout>
 
-</LinearLayout>
+</ScrollView>

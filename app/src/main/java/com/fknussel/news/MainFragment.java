@@ -12,14 +12,13 @@ import android.widget.ListView;
 
 public class MainFragment extends Fragment {
 
-    public MainFragment() {
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        
+        getActivity().setTitle(R.string.company_name);
 
         // Needs to be final so that it can be accessed from the onItemClickListener
         final NewsAdapter newsAdapter = new NewsAdapter(getActivity(), Post.getDummyPosts());
