@@ -1,5 +1,9 @@
 package com.fknussel.news;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.DisplayMetrics;
@@ -11,12 +15,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+
+import java.io.File;
 
 
 public class DetailActivity extends ActionBarActivity {
 
     public final String TAG = DetailActivity.class.getSimpleName();
-
+    int imageWidth, imageHeight;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,24 +32,16 @@ public class DetailActivity extends ActionBarActivity {
 
         if (getIntent() != null) {
             int id = getIntent().getIntExtra("id", 0) - 1;
-            Log.d(TAG, "Post ID = " + id);
 
             TextView postTitle = (TextView) findViewById(R.id.detail_post_title);
-//            TextView postDetails = (TextView) findViewById(R.id.detail_post_details);
-            ImageView postImage = (ImageView) findViewById(R.id.detail_post_image);
+            final ImageView postImage = (ImageView) findViewById(R.id.detail_post_image);
 
             postTitle.setText(Post.getDummyPosts().get(id).getTitle());
-//            postDetails.setText("Date - Category");
 
-            DisplayMetrics displaymetrics = new DisplayMetrics();
-            getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-            int viewportHeight = displaymetrics.heightPixels;
-            int viewportWidth = displaymetrics.widthPixels;
-            
+            final String imageUrl = Post.getDummyPosts().get(id).getImage();
+
             Picasso.with(this)
-                    .load("http://i.imgur.com/aX3MaJ9.jpg")
-                    .resize(viewportWidth, viewportHeight/2)
-                    .centerCrop()
+                    .load(imageUrl)
                     .into(postImage);
         }
     }
