@@ -48,6 +48,8 @@ public class NewsAdapter extends ArrayAdapter<Post> {
 
         Picasso.with(getContext())
                 .load(post.getImage())
+                .placeholder(R.drawable.ic_placeholder)
+                .error(R.drawable.ic_placeholder)
                 .resize(200, 200)
                 .centerCrop()
                 .transform(new RoundedTransformation(100, 0))
