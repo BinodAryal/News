@@ -42,9 +42,10 @@ This branch introduces networking capabilities using **Retrofit**, allowing the 
 
 This application uses the following libraries:
 
-* [**Picasso**](http://square.github.io/picasso/) for remote image loading and manipulation (first added on `FEAT-1`)
-* [**Retrofit**](http://square.github.io/retrofit/) as a way of interfacing our RESTful API (first added on `FEAT-2`)
-* [**GSON**](https://code.google.com/p/google-gson/) to convert Java Objects into their JSON representation, as well as to convert JSON strings to their equivalent Java objects (first added on `FEAT-2`)
+* [Picasso](http://square.github.io/picasso/) for remote image loading and manipulation (first added on `FEAT-1`)
+* [Retrofit](http://square.github.io/retrofit/) as a way of interfacing our RESTful API (first added on `FEAT-2`)
+* [GSON](https://code.google.com/p/google-gson/) to convert Java Objects into their JSON representation, as well as to convert JSON strings to their equivalent Java objects (first added on `FEAT-2`)
+* [DATE4J](http://www.date4j.net/) for date manipulation, as an alternative to `Date`, `Calendar` and related Java classes (first added on `FEAT-2`)
 
 ### Talking to the Backend
 
