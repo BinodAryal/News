@@ -5,33 +5,51 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 public class LocalNewsFragment extends Fragment {
+    
+    private static final String TAG = LocalNewsFragment.class.getSimpleName();
 
     public static LocalNewsFragment newInstance() {
         LocalNewsFragment fragment = new LocalNewsFragment();
         return fragment;
     }
 
-    public LocalNewsFragment() {
-        
-    }
+    public LocalNewsFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // inflate our fragment layout (aka show it on screen)
         View rootView = inflater.inflate(R.layout.fragment_local_news, container, false);
 
-        getActivity().setTitle(R.string.company_name);
-
         // Needs to be final so that it can be accessed from the onItemClickListener
-        final NewsAdapter newsAdapter = new NewsAdapter(getActivity(), Post.getDummyPosts());
+        final NewsAdapter newsAdapter = new NewsAdapter(getActivity());
 
+        ApiClient.getApiInterface().getPosts(1, new Callback<List<Post>>() {
+            @Override
+            public void success(List<Post> posts, Response response) {
+                newsAdapter.addAll(posts);
+                newsAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d(TAG, error.getMessage());
+            }
+        });
+        
         ListView listview = (ListView) rootView.findViewById(R.id.listview_news);
 
         listview.setAdapter(newsAdapter);
