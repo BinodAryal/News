@@ -82,14 +82,30 @@ public class Post {
     public ArrayList<Media> getMedia() {
         return media;
     }
+
+    public boolean hasMedia() {
+        return media.size() > 0;
+    }
     
     public String getImage() {
-        String image;
-        if (this.media.get(0).getType() == "imagen") {
-            image = this.media.get(0).getUrl();
-        } else {
-            image = null;
+        if (hasMedia()) {
+            for (Media item : media) {
+                if (item.getType().equals("imagen"))
+                    return item.getUrl();
+            }
         }
-        return image;
+        // since this ain't an actual image,
+        // picasso will display the default image instead
+        return "error";
+    }
+
+    public boolean hasImage() {
+        if (hasMedia()) {
+            for (Media item : media) {
+                if (item.getType().equals("imagen"))
+                    return true;
+            }
+        }
+        return false;
     }
 }

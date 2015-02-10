@@ -51,18 +51,20 @@ public class NewsAdapter extends ArrayAdapter<Post> {
         // Populate the data into the template view using the data object
         postTitle.setText(post.getTitle());
         postCategory.setText(post.getCategory());
-        postDate.setText(post.getDate().toString());
+        postDate.setText(post.getDate());
         
-        if (post.getMedia().size() > 0) {
+        if (post.hasImage()) {
             Picasso.with(getContext())
-                    .load(post.getMedia().get(0).getUrl())
+                    .load(post.getImage())
                     .placeholder(R.drawable.ic_placeholder)
                     .error(R.drawable.ic_error)
-                            //.resize(200, 200)
                     .fit()
                     .centerCrop()
                     .transform(new RoundedTransformation(100, 0))
                     .into(postImage);
+        } else {
+            // no image contributed
+            postImage.setImageResource(R.drawable.ic_error);
         }
 
         // Return the completed view to render on screen
