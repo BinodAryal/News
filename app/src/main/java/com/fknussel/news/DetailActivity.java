@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -19,11 +20,14 @@ import com.squareup.picasso.Target;
 
 import java.io.File;
 
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 
 public class DetailActivity extends ActionBarActivity {
 
     public final String TAG = DetailActivity.class.getSimpleName();
-    int imageWidth, imageHeight;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,18 +35,29 @@ public class DetailActivity extends ActionBarActivity {
         setContentView(R.layout.activity_detail);
 
         if (getIntent() != null) {
-            int id = getIntent().getIntExtra("id", 0) - 1;
+            int id = getIntent().getIntExtra("id", 0);
 
-            TextView postTitle = (TextView) findViewById(R.id.detail_post_title);
+            // final since they need to be accessed from within an inner class
+            final TextView postTitle = (TextView) findViewById(R.id.detail_post_title);
+            final TextView postBody = (TextView) findViewById(R.id.detail_post_body);
             final ImageView postImage = (ImageView) findViewById(R.id.detail_post_image);
 
-            postTitle.setText(Post.getDummyPosts().get(id).getTitle());
+            ApiClient.getApiInterface().getPost(id, new Callback<Post>() {
+                @Override
+                public void success(Post post, Response response) {
+                    postTitle.setText(post.getTitle());
+                    postBody.setText(Html.fromHtml(post.getBody()));
 
-            final String imageUrl = Post.getDummyPosts().get(id).getImage();
+                    Picasso.with(getApplicationContext())
+                            .load(post.getImage())
+                            .into(postImage);
+                }
 
-            Picasso.with(this)
-                    .load(imageUrl)
-                    .into(postImage);
+                @Override
+                public void failure(RetrofitError error) {
+
+                }
+            });
         }
     }
 
