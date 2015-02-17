@@ -1,6 +1,7 @@
 package com.fknussel.news;
 
 import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -120,6 +121,13 @@ public class MainActivity extends ActionBarActivity
             case R.id.action_search:
                 //startService(new Intent(this, RefreshService.class));
                 Toast.makeText(this, "search", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_purge:
+                DbHelper helper = new DbHelper(this);
+                SQLiteDatabase db = helper.getWritableDatabase();
+                db.delete(PostContract.TABLE, null, null);
+                db.delete(MediaContract.TABLE, null, null);
+                Toast.makeText(this, "data purged successfully :)", Toast.LENGTH_SHORT).show();
                 break;
         }
 

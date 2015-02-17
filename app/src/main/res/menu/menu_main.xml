@@ -21,5 +21,10 @@
         android:orderInCategory="100"
         android:icon="@android:drawable/ic_menu_rotate"
         app:showAsAction="never" />
+
+    <item android:id="@+id/action_purge"
+        android:title="@string/action_purge"
+        android:orderInCategory="400"
+        app:showAsAction="never" />
     
 </menu>
