@@ -4,19 +4,11 @@ import android.provider.BaseColumns;
 
 public class PostContract {
 
-    // DB specific constants
-    // ---------------------------
-    // This is the actual SQLite file that will contain the database
-    public static final String DB_NAME = "newsfeed.db";
-
-    // Database schemas are versioned.
-    public static final int DB_VERSION = 1;
-
-    // Sort order
-    public static final String DEFAULT_SORT = Column.DATE + " DESC";
-
     // Table name
     public static final String TABLE = "posts";
+
+    // Sort order
+    public static final String DEFAULT_SORT = Column.ID + " DESC";
 
     // Table definition
     public class Column {
