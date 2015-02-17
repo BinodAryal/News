@@ -2,11 +2,13 @@ package com.fknussel.news;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -39,15 +41,35 @@ public class DetailActivity extends ActionBarActivity {
 
             // final since they need to be accessed from within an inner class
             final TextView postTitle = (TextView) findViewById(R.id.detail_post_title);
+            final TextView postExcerpt = (TextView) findViewById(R.id.detail_post_excerpt);
             final TextView postBody = (TextView) findViewById(R.id.detail_post_body);
+            final TextView postCategory = (TextView) findViewById(R.id.detail_post_category);
+            final TextView postDate = (TextView) findViewById(R.id.detail_post_date);
             final ImageView postImage = (ImageView) findViewById(R.id.detail_post_image);
 
             ApiClient.getApiInterface().getPost(id, new Callback<Post>() {
                 @Override
                 public void success(Post post, Response response) {
                     postTitle.setText(post.getTitle());
-                    postBody.setText(Html.fromHtml(post.getBody()));
+                    
+                    if (!TextUtils.isEmpty(post.getExcerpt())) {
+                        postExcerpt.setText(TextHelper.processHtml(post.getExcerpt()));
+                    }
+                    
+                    if (!TextUtils.isEmpty(post.getBody())) {
+                        postBody.setText(TextHelper.processHtml(post.getBody()));
+                    } else {
+                        // if there's no body contributed, we don't want the excerpt to be bold
+                        postExcerpt.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+                        // we should also enforce the body TextView not to take up any space in the layout
+                        postBody.setPadding(0, 0, 0, 0);
+                    }
+                    
+                    postCategory.setText(post.getCategory());
+                    postDate.setText(DateHelper.getHumanFriendlyDate(post.getDate()));
 
+                    Log.d(TAG, post.getBody());
+                    
                     Picasso.with(getApplicationContext())
                             .load(post.getImage())
                             .into(postImage);

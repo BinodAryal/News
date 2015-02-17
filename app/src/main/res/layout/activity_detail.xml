@@ -32,16 +32,79 @@
             android:textSize="22dp"
             android:fontFamily="sans-serif-light" />
 
+        <LinearLayout
+            android:id="@+id/detail_post_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_post_image"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/detail_post_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:fontFamily="sans-serif-light"
+                android:textSize="14sp"
+                android:background="@color/primary_dark"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/detail_post_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:fontFamily="sans-serif-light"
+                android:textSize="14sp"
+                android:background="@color/primary"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+            
+            </LinearLayout>
+
+        <TextView
+            android:id="@+id/detail_post_excerpt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_post_details"
+            android:lineSpacingMultiplier="1.3"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="6dp"
+            android:fontFamily="sans-serif-bold"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textIsSelectable="true" />
+        
         <TextView
             android:id="@+id/detail_post_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/detail_post_image"
+            android:layout_below="@id/detail_post_excerpt"
             android:lineSpacingMultiplier="1.3"
-            android:padding="25dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            android:fontFamily="sans-serif-light"
+            android:textSize="17sp"
+            android:textIsSelectable="true" />
+
+        <TextView
+            android:id="@+id/detail_post_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_post_body"
+            android:padding="20dp"
             android:fontFamily="sans-serif-light"
             android:textSize="17dp"
-            android:textIsSelectable="true" />
+            android:text="Browse Image Gallery"
+            android:background="@color/primary_dark"
+            android:textColor="@android:color/white"
+            android:gravity="center" />
 
     </RelativeLayout>
 
