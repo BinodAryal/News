@@ -9,14 +9,15 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String TAG = DbHelper.class.getSimpleName();
 
     public DbHelper(Context context) {
-        super(context, PostContract.DB_NAME, null, PostContract.DB_VERSION);
+        super(context, DbContract.DB_NAME, null, DbContract.DB_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Called only once first time we create the database
-        String sql = String.format(
-                "create table %s (%s int primary key, %s text, %s text, %s text, %s text, %s text)",
+        // First create the posts table
+        String sqlCreatePosts = String.format(
+                "CREATE TABLE %s (%s int primary key, %s text, %s text, %s text, %s text, %s text)",
                 PostContract.TABLE,
                 PostContract.Column.ID,
                 PostContract.Column.TITLE,
@@ -25,7 +26,19 @@ public class DbHelper extends SQLiteOpenHelper {
                 PostContract.Column.CATEGORY,
                 PostContract.Column.DATE
         );
-        db.execSQL(sql);
+        db.execSQL(sqlCreatePosts);
+        
+        // Then create the media table (one to many relationship
+        // Each post may have zero, one or multiple media items attached
+        String sqlCreateMedia = String.format(
+                "CREATE TABLE %s (%s int primary key, %s int, %s text, %s text)",
+                MediaContract.TABLE,
+                MediaContract.Column.ID,
+                MediaContract.Column.POST_ID,
+                MediaContract.Column.URL,
+                MediaContract.Column.TYPE
+        );
+        db.execSQL(sqlCreateMedia);
     }
 
     @Override
@@ -35,6 +48,7 @@ public class DbHelper extends SQLiteOpenHelper {
         // update to users who already have older version of your app.
         // Typically you do ALTER TABLE ... but we wanna keep it simple here.
         db.execSQL("drop table if exists " + PostContract.TABLE);
+        db.execSQL("drop table if exists " + MediaContract.TABLE);
         onCreate(db);
     }
 }
