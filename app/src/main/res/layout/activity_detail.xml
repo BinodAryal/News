@@ -7,14 +7,29 @@
     
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+         >
+        
         <ImageView
             android:id="@+id/detail_post_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="fitStart"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_placeholder" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"
+            android:src="@drawable/gradient_shape"
+            android:layout_alignLeft="@id/detail_post_image"
+            android:layout_alignRight="@id/detail_post_image"
+            android:layout_alignStart="@id/detail_post_image"
+            android:layout_alignEnd="@id/detail_post_image"
+            android:layout_alignTop="@id/detail_post_image"
+            android:layout_alignBottom="@id/detail_post_image" />
 
         <TextView
             android:id="@+id/detail_post_title"
@@ -24,11 +39,8 @@
             android:layout_alignStart="@id/detail_post_image"
             android:layout_alignBottom="@id/detail_post_image"
             android:padding="10dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginRight="20dp"
+
             android:gravity="left"
-            android:background="#A6000000"
             android:textColor="#FFFFFF"
             android:textSize="22dp"
             android:fontFamily="sans-serif-light" />
