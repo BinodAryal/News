@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context=".DetailActivity"
+    android:fillViewport="true">
     
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -93,10 +94,11 @@
             android:textSize="17sp"
             android:textIsSelectable="true" />
 
-        <TextView
+        <Button
             android:id="@+id/detail_post_gallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_below="@id/detail_post_body"
             android:padding="20dp"
             android:fontFamily="sans-serif-light"
