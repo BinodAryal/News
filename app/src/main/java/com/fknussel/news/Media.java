@@ -11,7 +11,6 @@ public class Media {
     private String url;
     
     private static final String IMAGE_BASE_URL = "http://www.freyre.com.ar/files/";
-    private static final String VIDEO_BASE_URL = "";
 
     public Media(int id, int postId, String type, String url) {
         this.id = id;
@@ -29,10 +28,15 @@ public class Media {
     }
 
     public String getUrl() {
+
         if (type.equals("imagen")) {
-            return IMAGE_BASE_URL + url;
+            if (url.startsWith(IMAGE_BASE_URL)) {
+                return url;
+            } else {
+                return IMAGE_BASE_URL + url;
+            }
         } else {
-            return VIDEO_BASE_URL + url;
+            return url;
         }
     }
 
