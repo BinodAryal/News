@@ -6,5 +6,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="listview_padding">10dp</dimen>
     <dimen name="navigation_drawer_width">240dp</dimen>
+    <dimen name="detail_text_padding">20dp</dimen>
 
 </resources>

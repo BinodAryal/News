@@ -8,9 +8,7 @@ This is a high-level design diagram of the application:
 
 ![Architectural Overview](/docs/architecture.png)
 
-# Branches
-
-The following is a list of all of the features we'll to introduce in the app.
+# Branch Roadmap
 
 ### Feature #1: Timeline and Details Views
 
@@ -39,6 +37,15 @@ This branch introduces networking capabilities using **Retrofit**, allowing the 
 - [x] Model classes definition (`Post.java` and `Media.java`)
 - [x] Display dates in a human-friendly format
 
+### Feature #3: Data Caching
+
+> Branch Codename: `FEAT-3`<br />
+> Link to Pull Request: https://github.com/fknussel/News/pull/3
+
+So far, whenever we want to display a particular post or list the latest articles, we needed to query the API. This is not cool whatsoever, unnecessary network calls should be avoided whenever possible. Instead we should cache the data into our local database immediately after we query the web service for the first time. This is what this branch focuses on, making the app more efficient in terms of network calls.
+
+We also went ahead and made some UI tweaks to `DetailActivity`: the action bar is now transparent, the pictures kinda overlay the action bar but are still fully visible since it's transparent now, also posts' titles get displayed on top of a black-to-transparent gradient applied to the image (we are no longer using the semi-opaque black box underneath the title).
+
 # Dependencies
 
 This application uses the following libraries:
@@ -51,3 +58,12 @@ This application uses the following libraries:
 ### Talking to the Backend
 
 This app is tightly-knit to the RESTful API it gets its data from. The model classes (`Post.java`, `Media.java` and so on) were built upon the API's interfaces. Go check the [web service source code](https://github.com/fknussel/news-backend) to get an insight of how this all works together.
+
+The location of the RESTful API is hardcoded in this class:
+
+```
+public class ApiClient {
+    private static final String API_URL = "http://api.fknussel.com";
+```
+
+**Heads up!** :hand: DO NOT include a trailing slash here.
