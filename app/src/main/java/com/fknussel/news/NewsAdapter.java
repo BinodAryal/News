@@ -51,7 +51,7 @@ public class NewsAdapter extends ArrayAdapter<Post> {
         // Populate the data into the template view using the data object
         postTitle.setText(post.getTitle());
         postCategory.setText(post.getCategory());
-        postDate.setText(post.getDate());
+        postDate.setText(DateHelper.getHumanFriendlyDate(post.getDate()));
         
         if (post.hasImage()) {
             Picasso.with(getContext())
